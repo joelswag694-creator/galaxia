@@ -35,7 +35,6 @@ body {
 .star {
   position: absolute;
   border-radius: 50%;
-  background: white;
   opacity: 0.8;
   animation: twinkle 3s infinite ease-in-out;
   z-index: 0;
@@ -71,19 +70,21 @@ body {
 <script>
 window.onload = function() {
   const starsContainer = document.getElementById('stars');
-  for (let i = 0; i < 500; i++) { // 500 estrellas
+  const colors = ["#ffffff", "#ffffaa", "#aaddff"]; // blanco, amarillo, azul
+  for (let i = 0; i < 700; i++) { // más estrellas
     const star = document.createElement('div');
     star.classList.add('star');
     const size = Math.random() * 4 + 1;
     star.style.width = `${size}px`;
     star.style.height = `${size}px`;
+    star.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
     star.style.top = `${Math.random() * 100}vh`;
     star.style.left = `${Math.random() * 100}vw`;
     star.style.animationDuration = `${2 + Math.random() * 3}s`;
     starsContainer.appendChild(star);
   }
 
-  const messages = ["Te amo", "Mi todo", "Mi estrella", "Eres mi vida", "Siempre juntos", "Mi amor"];
+  const messages = ["Te amo", "Mi todo", "Mi estrella", "Eres mi vida", "Siempre juntos", "Mi amor", "Mi luz"];
   const messagesContainer = document.getElementById('messages');
 
   function createMessage() {
